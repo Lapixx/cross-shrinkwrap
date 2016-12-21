@@ -11,6 +11,20 @@ const release = (err) => setImmediate(() => { throw err; });
 const localPath = fname => path.join(process.cwd(), fname);
 const requireLocal = fname => require(localPath(fname));
 
+const cleanDeps = (deps, isDirty) =>
+    return Object.keys(deps).reduce((result, depName) => {
+        if (isDirty(depName))
+            return result;
+
+        result[depName] = deps[depName];
+
+        // clean sub dependencies
+        if (deps[depName].dependencies)
+            result[depName].dependencies = cleanDeps(deps[key].dependencies, isDirty);
+
+        return result;
+}, {});
+
 promisify(glob)("./node_modules/**/package.json")
 .then(packages => {
 
