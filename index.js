@@ -26,7 +26,7 @@ promisify(glob)("./node_modules/**/package.json")
     const isBlacklisted = name => blacklist.includes(name);
     const wrap = requireLocal("npm-shrinkwrap.json");
     const cleanedDeps = cleanDeps(wrap.dependencies, isBlacklisted);
-    return { ...wrap, dependencies: cleanedDeps };
+    return Object.assign({}, wrap, { dependencies: cleanedDeps });
 })
 .then(cleanedWrap => {
     const data = JSON.stringify(cleanedWrap);
