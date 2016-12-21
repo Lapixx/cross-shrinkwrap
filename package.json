@@ -1,0 +1,25 @@
+{
+  "name": "cross-shrinkwrap",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "bin": {
+    "cross-shrinkwrap": "./index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lapixx/cross-shrinkwrap.git"
+  },
+  "author": "Tijn Kersjes <tijn@divbyzero.nl>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Lapixx/cross-shrinkwrap/issues"
+  },
+  "homepage": "https://github.com/Lapixx/cross-shrinkwrap#readme",
+  "dependencies": {
+    "glob": "^7.1.1"
+  }
+}
