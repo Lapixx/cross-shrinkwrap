@@ -44,11 +44,11 @@ wrapPromise(cb => glob("./node_modules/**/package.json", cb))
     const cleanedDeps = cleanDeps(wrap.dependencies, isBlacklisted);
     wrap.dependencies = cleanedDeps;
 
-    const data = JSON.stringify(cleanedWrap, null, 2);
+    const data = JSON.stringify(wrap, null, 2);
     return wrapPromise(cb => fs.writeFile(localPath("npm-shrinkwrap.json"), data, cb))
     .then(() => {
         if (blacklist.length > 0) {
-            console.log("Removed " + blacklist.length + " dependencies from shrinkwrap:");
+            console.log("Filtered " + blacklist.length + " dependencies from shrinkwrap:");
             console.log(" - " + blacklist.join("\n - ") + "\n");
         }
         else {
