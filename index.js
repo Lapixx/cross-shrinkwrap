@@ -12,7 +12,7 @@ const localPath = fname => path.join(process.cwd(), fname);
 const requireLocal = fname => require(localPath(fname));
 
 const cleanDeps = (deps, isDirty) =>
-    return Object.keys(deps).reduce((result, depName) => {
+    Object.keys(deps).reduce((result, depName) => {
         if (isDirty(depName))
             return result;
 
